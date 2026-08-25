@@ -5,8 +5,8 @@ views:
     icon: mdi:chart-donut
     cards:
       - type: gauge
-        name: Current limit
-        entity: sensor.codex_pulse_current_limit
+        name: Primary limit usage
+        entity: sensor.codex_pulse_primary_limit_usage
         min: 0
         max: 100
         severity:
@@ -14,8 +14,8 @@ views:
           yellow: 60
           red: 85
       - type: gauge
-        name: Secondary limit
-        entity: sensor.codex_pulse_secondary_limit
+        name: Secondary limit usage
+        entity: sensor.codex_pulse_secondary_limit_usage
         min: 0
         max: 100
         severity:
@@ -25,8 +25,8 @@ views:
       - type: entities
         title: Codex windows
         entities:
-          - entity: sensor.codex_pulse_current_limit_reset
-          - entity: sensor.codex_pulse_current_limit_window
+          - entity: sensor.codex_pulse_primary_limit_reset
+          - entity: sensor.codex_pulse_primary_limit_window
           - entity: sensor.codex_pulse_secondary_limit_reset
           - entity: sensor.codex_pulse_secondary_limit_window
           - entity: sensor.codex_pulse_plan

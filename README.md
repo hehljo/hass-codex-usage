@@ -8,7 +8,7 @@
 
 ![Codex Pulse Icon](custom_components/hass_codex_usage/brand/icon.png)
 
-Codex Pulse brings Codex usage into Home Assistant: current and secondary
+Codex Pulse brings Codex usage into Home Assistant: primary and secondary
 limits, reset times, window durations, plan, available resets, credits, and
 automatically discovered additional limits.
 

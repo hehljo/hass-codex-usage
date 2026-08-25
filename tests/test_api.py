@@ -60,7 +60,7 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(result["available_reset_credits"], 3)
         self.assertEqual(result["credit_balance"], "12.5")
         self.assertEqual(result["spend_remaining_percent"], 68)
-        self.assertEqual(result["limits"]["codex_primary"]["remaining_percent"], 58)
+        self.assertNotIn("codex_primary", result["limits"])
         self.assertEqual(result["limits"]["codex_gpt_5_6_primary"]["used_percent"], 88)
 
     def test_token_metadata_reads_account_claims_without_validating_jwt(self) -> None:

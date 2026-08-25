@@ -96,25 +96,26 @@ def _add_limit_windows(
 ) -> None:
     if not isinstance(limit, dict):
         return
-    windows = (("primary", "Current limit"), ("secondary", "Secondary limit"))
-    for window_name, default_label in windows:
+    windows = ("primary", "secondary")
+    for window_name in windows:
         window = limit.get(f"{window_name}_window")
         if not isinstance(window, dict):
             continue
         normalized = _window_data(window)
         if not normalized:
             continue
-        limit_key = f"{key}_{window_name}"
-        result["limits"][limit_key] = {
-            "label": default_label if is_default else f"{label} – {window_name.title()}",
-            "limit_id": key,
-            "window": window_name,
-            **normalized,
-        }
         if is_default:
             result[f"{window_name}_usage_percent"] = normalized.get("used_percent")
             result[f"{window_name}_window_minutes"] = normalized.get("window_minutes")
             result[f"{window_name}_reset_time"] = normalized.get("resets_at")
+            continue
+        limit_key = f"{key}_{window_name}"
+        result["limits"][limit_key] = {
+            "label": f"{label} {window_name.title()} limit",
+            "limit_id": key,
+            "window": window_name,
+            **normalized,
+        }
 
 
 def _window_data(window: dict[str, Any]) -> dict[str, Any]:

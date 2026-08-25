@@ -23,10 +23,10 @@ CONF_PLAN_TYPE = "plan_type"
 CONF_UPDATE_INTERVAL = "update_interval"
 
 SENSOR_DEFINITIONS = (
-    ("primary_usage_percent", "Current limit", "%", "mdi:gauge", None),
-    ("primary_reset_time", "Current limit reset", None, "mdi:timer-refresh", "timestamp"),
-    ("primary_window_minutes", "Current limit window", "min", "mdi:timer-outline", None),
-    ("secondary_usage_percent", "Secondary limit", "%", "mdi:gauge", None),
+    ("primary_usage_percent", "Primary limit usage", "%", "mdi:gauge", None),
+    ("primary_reset_time", "Primary limit reset", None, "mdi:timer-refresh", "timestamp"),
+    ("primary_window_minutes", "Primary limit window", "min", "mdi:timer-outline", None),
+    ("secondary_usage_percent", "Secondary limit usage", "%", "mdi:gauge", None),
     ("secondary_reset_time", "Secondary limit reset", None, "mdi:calendar-refresh", "timestamp"),
     ("secondary_window_minutes", "Secondary limit window", "min", "mdi:calendar-clock", None),
     ("plan_type", "Plan", None, "mdi:account-circle-outline", None),
