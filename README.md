@@ -1,4 +1,4 @@
-# Codex Pulse für Home Assistant
+# Codex Pulse for Home Assistant
 
 [![HACS validation](https://github.com/hehljo/hass-codex-usage/actions/workflows/validate.yaml/badge.svg)](https://github.com/hehljo/hass-codex-usage/actions/workflows/validate.yaml)
 [![Hassfest](https://github.com/hehljo/hass-codex-usage/actions/workflows/hassfest.yaml/badge.svg)](https://github.com/hehljo/hass-codex-usage/actions/workflows/hassfest.yaml)
@@ -8,45 +8,40 @@
 
 ![Codex Pulse Icon](custom_components/hass_codex_usage/brand/icon.png)
 
-Codex Pulse macht die Codex-Auslastung als Home-Assistant-Sensoren sichtbar:
-aktuelles und zweites Limit, deren Resets und Zeitfenster, Plan, verfügbare
-Limit-Resets, Credits sowie automatisch entdeckte Zusatzlimits.
+Codex Pulse brings Codex usage into Home Assistant: current and secondary
+limits, reset times, window durations, plan, available resets, credits, and
+automatically discovered additional limits.
 
-Die Integration verwendet die gleiche kurzlebige Geräteanmeldung wie die
-Codex-CLI. Tokens werden nur in der Home-Assistant-Config-Entry gespeichert;
-ins Log kommt kein Token.
+The integration uses the same short-lived device authorization as Codex CLI.
+Tokens are stored only in the Home Assistant config entry and are never logged.
 
-## Installation
+## Install with HACS
 
-1. Das Repository in HACS als benutzerdefiniertes Repository vom Typ
-   **Integration** hinzufügen.
-2. **Codex Pulse** installieren und Home Assistant neu starten.
-3. Unter **Einstellungen → Geräte & Dienste → Integration hinzufügen** nach **Codex Pulse** suchen.
-4. Die angezeigte OpenAI-Seite öffnen, den einmaligen Code eingeben und danach in Home Assistant bestätigen.
+1. Open HACS → **⋮** → **Custom repositories**.
+2. Add `https://github.com/hehljo/hass-codex-usage` and select **Integration**.
+3. Install **Codex Pulse** and restart Home Assistant.
+4. Go to **Settings → Devices & services → Add integration**, then choose
+   **Codex Pulse**.
+5. Open the shown OpenAI page, enter the one-time code, and confirm in Home
+   Assistant.
 
-## HACS
+[![Add repository to HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fhehljo%2Fhass-codex-usage)
 
-[![Zum HACS-Repository hinzufügen](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fhehljo%2Fhass-codex-usage)
+## Sensors
 
-1. HACS öffnen → oben rechts **⋮** → **Custom repositories**.
-2. `https://github.com/hehljo/hass-codex-usage` eintragen und **Integration** wählen.
-3. **Codex Pulse** installieren und Home Assistant neu starten.
+- Current and secondary limits: percentage, reset time, and window duration.
+- Plan, available limit resets, additional credits, and remaining budget when
+  supplied by the account.
+- Dynamic sensors for Codex or model-specific limits. If a limit temporarily
+  disappears, its Home Assistant history stays intact and the sensor becomes
+  `unavailable`.
 
-## Sensoren
+The default polling interval is five minutes and can be set from 60 to 3,600
+seconds. The sample dashboard in `dashboards/codex_pulse.yaml` uses the two
+stable limits.
 
-- Aktuelles Limit und zweites Limit – Prozent, Reset und Dauer.
-- Plan, verfügbare Limit-Resets, Zusatz-Credits und verbleibendes Budget,
-  soweit der Account diese Daten liefert.
-- Dynamische Sensoren für weitere Codex- oder modellbezogene Limits.
-  Verschwindet ein Limit temporär, bleibt dessen Verlauf in Home Assistant
-  erhalten und der Sensor wird `unavailable`.
+## Notes
 
-Das Standardintervall beträgt fünf Minuten und kann zwischen 60 und 3.600
-Sekunden eingestellt werden. Das beigefügte Beispiel unter
-`dashboards/codex_pulse.yaml` verwendet die beiden stabilen Limits.
-
-## Hinweis
-
-Das ist eine unabhängige Home-Assistant-Integration und kein OpenAI-Produkt.
-Die Codex-Usage-Schnittstelle kann sich ändern; die Implementierung folgt dem
-aktuellen öffentlichen Codex-Client.
+This is an independent Home Assistant integration, not an OpenAI product. The
+Codex usage interface may change; the implementation follows the current public
+Codex client behavior.

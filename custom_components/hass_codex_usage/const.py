@@ -23,15 +23,15 @@ CONF_PLAN_TYPE = "plan_type"
 CONF_UPDATE_INTERVAL = "update_interval"
 
 SENSOR_DEFINITIONS = (
-    ("primary_usage_percent", "Aktuelles Limit", "%", "mdi:gauge", None),
-    ("primary_reset_time", "Aktuelles Limit – Reset", None, "mdi:timer-refresh", "timestamp"),
-    ("primary_window_minutes", "Aktuelles Limit – Fenster", "min", "mdi:timer-outline", None),
-    ("secondary_usage_percent", "Zweites Limit", "%", "mdi:gauge", None),
-    ("secondary_reset_time", "Zweites Limit – Reset", None, "mdi:calendar-refresh", "timestamp"),
-    ("secondary_window_minutes", "Zweites Limit – Fenster", "min", "mdi:calendar-clock", None),
+    ("primary_usage_percent", "Current limit", "%", "mdi:gauge", None),
+    ("primary_reset_time", "Current limit reset", None, "mdi:timer-refresh", "timestamp"),
+    ("primary_window_minutes", "Current limit window", "min", "mdi:timer-outline", None),
+    ("secondary_usage_percent", "Secondary limit", "%", "mdi:gauge", None),
+    ("secondary_reset_time", "Secondary limit reset", None, "mdi:calendar-refresh", "timestamp"),
+    ("secondary_window_minutes", "Secondary limit window", "min", "mdi:calendar-clock", None),
     ("plan_type", "Plan", None, "mdi:account-circle-outline", None),
-    ("available_reset_credits", "Limit-Resets verfügbar", "Resets", "mdi:restart", None),
-    ("credit_balance", "Zusatz-Credits", "credits", "mdi:wallet-outline", None),
-    ("spend_remaining_percent", "Budget übrig", "%", "mdi:cash-check", None),
-    ("api_error", "API-Fehler", "errors", "mdi:alert-circle-outline", None),
+    ("available_reset_credits", "Available limit resets", "resets", "mdi:restart", None),
+    ("credit_balance", "Additional credits", "credits", "mdi:wallet-outline", None),
+    ("spend_remaining_percent", "Remaining budget", "%", "mdi:cash-check", None),
+    ("api_error", "API errors", "errors", "mdi:alert-circle-outline", None),
 )

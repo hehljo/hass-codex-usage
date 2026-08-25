@@ -96,7 +96,7 @@ def _add_limit_windows(
 ) -> None:
     if not isinstance(limit, dict):
         return
-    windows = (("primary", "Aktuelles Limit"), ("secondary", "Zweites Limit"))
+    windows = (("primary", "Current limit"), ("secondary", "Secondary limit"))
     for window_name, default_label in windows:
         window = limit.get(f"{window_name}_window")
         if not isinstance(window, dict):

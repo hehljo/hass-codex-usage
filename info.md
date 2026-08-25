@@ -1,7 +1,7 @@
 # Codex Pulse
 
-Codex Pulse zeigt die Codex-Auslastung direkt in Home Assistant: Nutzungsfenster,
-Resets, Account-Credits, Budget und zusätzliche modellbezogene Limits.
+Codex Pulse brings Codex usage into Home Assistant: usage windows, reset times,
+account credits, budget, and additional model-specific limits.
 
-Nach der Installation die Integration unter **Einstellungen → Geräte & Dienste**
-hinzufügen und die einmalige Geräteanmeldung abschließen.
+After installation, add the integration under **Settings → Devices & services**
+and complete the one-time device authorization.

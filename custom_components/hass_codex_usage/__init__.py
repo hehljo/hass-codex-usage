@@ -95,16 +95,16 @@ class CodexUsageCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 timeout=aiohttp.ClientTimeout(total=15),
             ) as response:
                 if response.status in (401, 403):
-                    raise ConfigEntryAuthFailed("Codex-Anmeldung ist abgelaufen")
+                    raise ConfigEntryAuthFailed("Codex authentication has expired")
                 response.raise_for_status()
                 payload = await response.json(content_type=None)
         except aiohttp.ClientResponseError as err:
-            raise UpdateFailed(f"Codex-Auslastung nicht abrufbar: HTTP {err.status}") from err
+            raise UpdateFailed(f"Unable to fetch Codex usage: HTTP {err.status}") from err
         except aiohttp.ClientError as err:
-            raise UpdateFailed(f"Codex-Auslastung nicht abrufbar: {err}") from err
+            raise UpdateFailed(f"Unable to fetch Codex usage: {err}") from err
 
         if not isinstance(payload, dict):
-            raise UpdateFailed("Codex-Auslastung lieferte keine gültigen Daten")
+            raise UpdateFailed("Codex usage returned invalid data")
         return parse_usage(payload)
 
     async def _async_ensure_access_token(self) -> None:
@@ -115,7 +115,7 @@ class CodexUsageCoordinator(DataUpdateCoordinator[dict[str, Any]]):
 
         refresh_token = self.config_entry.data.get(CONF_REFRESH_TOKEN)
         if not refresh_token:
-            raise ConfigEntryAuthFailed("Kein Codex-Refresh-Token vorhanden")
+            raise ConfigEntryAuthFailed("No Codex refresh token is available")
 
         try:
             session = aiohttp_client.async_get_clientsession(self.hass)
@@ -133,13 +133,13 @@ class CodexUsageCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 response.raise_for_status()
                 tokens = await response.json(content_type=None)
         except CodexAuthenticationError as err:
-            raise ConfigEntryAuthFailed("Codex-Anmeldung bitte neu verbinden") from err
+            raise ConfigEntryAuthFailed("Reconnect Codex to continue") from err
         except aiohttp.ClientError as err:
-            raise UpdateFailed(f"Codex-Token konnte nicht erneuert werden: {err}") from err
+            raise UpdateFailed(f"Unable to refresh Codex token: {err}") from err
 
         access_token = tokens.get("access_token") if isinstance(tokens, dict) else None
         if not isinstance(access_token, str) or not access_token:
-            raise ConfigEntryAuthFailed("Codex-Tokenantwort ist unvollständig")
+            raise ConfigEntryAuthFailed("Codex token response is incomplete")
 
         id_token = tokens.get("id_token")
         if not isinstance(id_token, str):

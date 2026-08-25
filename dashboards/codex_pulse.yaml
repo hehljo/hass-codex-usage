@@ -1,12 +1,12 @@
 title: Codex Pulse
 views:
-  - title: Überblick
+  - title: Overview
     path: codex-pulse
     icon: mdi:chart-donut
     cards:
       - type: gauge
-        name: Aktuelles Limit
-        entity: sensor.codex_pulse_aktuelles_limit
+        name: Current limit
+        entity: sensor.codex_pulse_current_limit
         min: 0
         max: 100
         severity:
@@ -14,8 +14,8 @@ views:
           yellow: 60
           red: 85
       - type: gauge
-        name: Zweites Limit
-        entity: sensor.codex_pulse_zweites_limit
+        name: Secondary limit
+        entity: sensor.codex_pulse_secondary_limit
         min: 0
         max: 100
         severity:
@@ -23,11 +23,11 @@ views:
           yellow: 60
           red: 85
       - type: entities
-        title: Codex-Fenster
+        title: Codex windows
         entities:
-          - entity: sensor.codex_pulse_aktuelles_limit_reset
-          - entity: sensor.codex_pulse_aktuelles_limit_fenster
-          - entity: sensor.codex_pulse_zweites_limit_reset
-          - entity: sensor.codex_pulse_zweites_limit_fenster
+          - entity: sensor.codex_pulse_current_limit_reset
+          - entity: sensor.codex_pulse_current_limit_window
+          - entity: sensor.codex_pulse_secondary_limit_reset
+          - entity: sensor.codex_pulse_secondary_limit_window
           - entity: sensor.codex_pulse_plan
-          - entity: sensor.codex_pulse_limit_resets_verfugbar
+          - entity: sensor.codex_pulse_available_limit_resets

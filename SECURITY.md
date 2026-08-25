@@ -1,7 +1,7 @@
-# Sicherheitsrichtlinie
+# Security policy
 
-Bitte keine Tokens, Auth-Codes, `auth.json`-Dateien oder Home-Assistant-
-`.storage`-Inhalte in Issues veröffentlichen.
+Do not publish tokens, authorization codes, `auth.json` files, or Home
+Assistant `.storage` contents in issues.
 
-Sicherheitsrelevante Schwachstellen bitte über die privaten GitHub Security
-Advisories dieses Repositories melden.
+Report security vulnerabilities through this repository's private GitHub
+Security Advisories.
