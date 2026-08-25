@@ -1,0 +1,12 @@
+{
+  "domain": "hass_codex_usage",
+  "name": "Codex Pulse",
+  "codeowners": ["@hehljo"],
+  "config_flow": true,
+  "documentation": "https://github.com/hehljo/hass-codex-usage",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/hehljo/hass-codex-usage/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}

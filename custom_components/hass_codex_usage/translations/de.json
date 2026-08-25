@@ -1,0 +1,33 @@
+{
+  "title": "Codex Pulse",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Codex verbinden",
+        "description": "Öffne {verification_url}, melde dich bei ChatGPT an und gib den einmaligen Code **{user_code}** ein. Danach Haken setzen und absenden.",
+        "data": {
+          "authorization_completed": "Autorisierung abgeschlossen"
+        }
+      }
+    },
+    "error": {
+      "authorization_pending": "Noch nicht bestätigt. Erst im Browser abschließen, dann erneut absenden.",
+      "cannot_connect": "OpenAI ist gerade nicht erreichbar.",
+      "invalid_response": "OpenAI lieferte keine verwertbare Antwort. Bitte neu starten."
+    },
+    "abort": {
+      "cannot_connect": "OpenAI ist gerade nicht erreichbar.",
+      "already_configured": "Dieses Codex-Konto ist schon verbunden."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Aktualisierung",
+        "data": {
+          "update_interval": "Abfrageintervall (Sekunden)"
+        }
+      }
+    }
+  }
+}
